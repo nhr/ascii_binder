@@ -285,8 +285,10 @@ if cmd == 'clone'
 
   if cmd_opts[:branches]
     Dir.chdir(docs_basedir)
+
     puts "Tracking branch setup:"
-    distro_branches.each do |doc_branch|
+
+    distro_map.distro_branches.each do |doc_branch|
       next if doc_branch == 'master'
       puts "- #{doc_branch}"
       system("git branch #{doc_branch} origin/#{doc_branch}")
